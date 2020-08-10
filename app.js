@@ -39,7 +39,7 @@ var allowCors = function(req, res, next) {
 	res.header("X-Powered-By", 'Express');
 	next()
 };
-console.log(router)
+
 app.use('/frontEnd', router)
 
 

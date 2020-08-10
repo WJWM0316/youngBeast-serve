@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "node_lieduoduo",
+            "name": "youngbeast-serve",
             "script": "./bin/www",
             "dev":"./bin/www",
             "cwd": "./",
