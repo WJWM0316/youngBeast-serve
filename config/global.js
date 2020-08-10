@@ -5,6 +5,11 @@ var GLOBALCONFIG = {
 	bucket  : ""  // oss bucket
 }		
 switch (NODE_ENV) {
+		case 'test': // 开发
+      GLOBALCONFIG.nodeApi = "http://127.0.0.1:3002"
+			GLOBALCONFIG.cdnHost = 'http://attach.youngbeast.ziwork.com'
+			GLOBALCONFIG.bucket  = 'youngbeast-uploads-test'
+      break;
     case 'dev': // 测试
       GLOBALCONFIG.nodeApi = "https://node.youngbeast.ziwork.com"
 			GLOBALCONFIG.cdnHost = 'http://attach.youngbeast.ziwork.com'

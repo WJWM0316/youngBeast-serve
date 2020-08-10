@@ -7,16 +7,19 @@ const {
 const request = require('request-promise-native');
 const qs = require('qs')
 var fs = require('fs');
-
+const config = require('../../config/global.js')
 var multiparty = require("multiparty");
-const BaseURL = process.env.NODE_ENV === 'dev' ? 'https://node.youngbeast.ziwork.com' : process.env.NODE_ENV === 'pro' ? 'https://node.youngbeast.cn' : 'http://127.0.0.1:3000'
+const BaseURL = config.nodeApi
 const RenderConfing = {
 	'youngBeast_act': {
 		url: 'frontEnd/s-youngBeast-act',
 		isDevice: true
 	}
 }
-
+router.get('/ceshi', function (req, res, next) {
+	res.json(BaseURL)
+  next()
+})
 router.post('/youngBeast_act', (req, res, next) => {
 	var form = new multiparty.Form({
 		uploadDir: './public/images/cropper'
