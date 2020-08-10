@@ -1,0 +1,152 @@
+
+body {
+  background-color: #032692;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.poster {
+  width: 100%;
+  height: 100%;
+  padding-top: 28px;
+  box-sizing: border-box;
+  position: relative;
+  background: url('../images/youngbeastBg.png') no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+.headImg {
+  width: 305px;
+  padding-left: 33px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 85px;
+}
+.imgBox {
+  width: 100%;
+  height: 294px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.headImg .img {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size:40px;
+  font-weight:bold;
+  color:#fff;
+  line-height:1;
+  text-align: center;
+  margin: 30px 0 17px;
+  letter-spacing: 5px;
+}
+.p {
+  font-size:16px;
+  font-weight:300;
+  color:#fff;
+  line-height: 25px;
+  padding-left: 34px;
+  letter-spacing: 1.5px;
+}
+.box {
+  display: inline-block;
+  position: relative;
+  margin: 0 2px;
+  font-weight:300;
+  z-index: 2;
+}
+.box.name {
+  vertical-align: bottom;
+}
+
+.box .name {
+  max-width: 105px;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  margin-top: -2px;
+}
+.box::after {
+  content: '';
+  width: 100%;
+  height: 6px;
+  background-color: #E41625;
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  z-index: -1;
+}
+.tis {
+  line-height: 1;
+  font-size: 0;
+}
+.tis span {
+  font-size:18px;
+  font-weight:bold;
+  color:#fff;
+  line-height:1;
+  margin-top: 12px;
+  margin-left: 34px;
+  letter-spacing: 2px;
+  display: inline-block;
+  position: relative;
+}
+.tis span::after {
+  content: '';
+  width: 100%;
+  height: 6px;
+  background-color: #E41625;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.footer {
+  position: absolute;
+  width: 100%;
+  height: 63px;
+  background-color: #fff;
+  left: 0;
+  bottom: 0;
+}
+.footer .p {
+  width:130px;
+  font-size:12px;
+  color:#000;
+  line-height:18px;
+  top: 14px;
+  left: 32px;
+  position: absolute;
+  padding: 0;
+}
+.footerImg {
+  width: 60px;
+  position: absolute;
+  top: -18px;
+  right: 23px;
+}
+.erweima {
+  width: 100%;
+  display: block;
+}
+.tips {
+  width: 100%;
+  height: 14px;
+  background-color: #032692;
+  text-align: center;
+}
+.tips span {
+  display: block;
+  height: 14px;
+  font-size:12px;
+  color:#fff;
+  transform: scale(0.8);
+  line-height:12px;
+}

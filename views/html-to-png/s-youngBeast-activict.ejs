@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>图片生成器</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="/stylesheets/imgGenerator.css">
+  </head>
+  <body>
+    <div class="poster">
+      <div class="headImg">
+        <div class="imgBox"><img class="img" src=<%= img %> ></div>
+      </div>
+      <p class="p">我是<span class="box name"><span class="name"><%= name %></span></span> 我是<span class="box"><%= introduce %></span>青年</p>
+      <p class="p">我可以<span class="desc"><%= desc1 %></span></p>
+      <p class="p">也可以<span class="desc"><%= desc2 %></span></p>
+      <p class="p">还可以<span class="desc"><%= desc3 %></span></p>
+      <p class="p">2020我想<span class="desc"><%= desc4 %></span></p>
+    </div>
+  </head>
+  <script>
+    (function(){
+        var calc = function(){
+            var docElement = document.documentElement;
+            var clientWidthValue = docElement.clientWidth > 750 ? 750 : docElement.clientWidth;
+            docElement.style.fontSize = 100*(clientWidthValue/750) + 'px';
+        }
+        calc();
+        window.addEventListener('resize', calc);
+    })();
+    </script>
+</html>

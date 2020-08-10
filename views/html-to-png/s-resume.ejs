@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>分享简历</title>
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="/stylesheets/common.css">
+    <link rel="stylesheet" href="/stylesheets/icons.css">
+    <link rel="stylesheet" href="/stylesheets/s-resume.css">
+</head>
+<body>
+    <div class="wrapper">
+       <div class="profile-wrapper">
+           <img src=<%=resumeAttach.smallUrl %> alt="">
+       </div>
+       <div class="username"><%=name %></div>
+       <div class="work-experience"><span><%=lastCompanyName %></span><span> | </span><span><%=lastPosition %></span></div>
+       <% if(jobStatusDesc){ %> 
+       <div class="work-status">
+           <span class="tag-label"><%=jobStatusDesc  %></span>
+       </div>
+       <% } %>
+       <div class="user-desc">
+           <span><i class="icon icon-experience"></i><%=workAgeDesc %></span>
+           <span><i class="icon icon-birthday"></i><%=age %>岁</span>
+           <span><i class="icon icon-degree"></i><%=degreeDesc %></span>
+       </div>
+        <div class="base-desc">
+            <div class="base-desc-labels">
+             <% for (var i = 0; i<personalizedLabels.length; i++)  {%>
+                 <span class="tag-label-radius"><%= personalizedLabels[i].labelName %></span>
+             <% } %>
+            </div>
+            <% if(signature){ %>
+            <div class="base-desc-text"><%= signature %></div>
+            <%} else {%>
+            <div class="base-desc-text">这个人有点调皮，自我描述还没写呢~</div>
+            <% } %>
+        </div>
+       <!-- 求职意向 -->
+       <div class="resume-label">
+           <div class="resume-label-header">
+               <div class="title-name">求职意向</div>
+           </div>
+           <div class="label-items">
+                <% if(expects.length) { %>
+                    <% for(var i =0; i<expects.length; i++) { %>
+                    <div class="label-item">
+                        <div class="label-title">
+                            <div><%=expects[i].position%> | <%=expects[i].city%></div>
+                            <div class="label-treatment"><%=expects[i].salaryFloor%>~<%=expects[i].salaryCeil%>k</div>
+                        </div>
+                        <div class="label-desc"><%= expects[i].fieldsStr %></div>
+                    </div>
+                    <% } %>
+                <% } else { %>
+                    <div class="label-item" style="text-align: center; font-weight: 300;">尚未完善</div>
+                <%}%>
+           </div>
+       </div>
+       <!-- 工作经历 -->
+       <div class="resume-label">
+           <div class="resume-label-header">
+               <div class="title-name">工作经历</div>
+           </div>
+           <div class="label-items">
+            <% if(careers.length) { %>
+                <% for(var i =0; i<careers.length; i++) { %>
+                <div class="label-item">
+                   <div class="label-title">
+                       <div class="ellipsis"><%= careers[i].company %></div>
+                       <div class="label-time"><%= careers[i].startTime %>-<%= careers[i].endTime %></div>
+                   </div>
+                   <div class="label-desc"><%= careers[i].position %></div>
+                   <div class="label-tags">
+                    <% for(var j =0; j<careers[i].technicalLabels.length; j++) { %>
+                       <span class="tag-label"><%= careers[i].technicalLabels[j].labelName%></span>
+                    <% }%>
+                   </div>
+                </div>
+                <% } %>
+            <% } else { %>
+                <div class="label-item" style="text-align: center; font-weight: 300;">尚未完善</div>
+            <%}%>
+           </div>
+       </div>
+       <!-- 教育经历 -->
+       <div class="resume-label resume-education">
+            <div class="resume-label-header">
+                <div class="title-name">教育经历</div>
+            </div>
+            <div class="label-items">
+                <% for(var i =0; i<educations.length; i++) { %>
+                <div class="label-item">
+                    <div class="label-title">
+                        <div class="ellipsis"><%= educations[i].school%></div>
+                        <div class="label-time"><%= educations[i].startTime %>-<%= educations[i].endTime %></div>
+                    </div>
+                    <div class="label-desc"><%= educations[i].degreeDesc%>·<%= educations[i].major%></div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="resume-footer">
+            <div class="resume-qrcode">
+                <img src="images/age.jpg">
+            </div>
+            <div class="footer-text">长按查看Ta的完整简历</div>
+        </div>
+    </div>
+    <!-- head image -->
+    <div class="wrapper-image wrapper-image-header"><img src="/images/resume/s-header.png" alt=""></div>
+    <!-- footer image -->
+    <div class="wrapper-image wrapper-image-footer"><img src="/images/resume/s-footer.png" alt=""></div>
+    <!-- global image -->
+    <div class="wrapper-image icon-image icon-global"></div>
+    <!-- global image -->
+    <div class="wrapper-image icon-image icon-robot"></div>
+</body>
+<script>
+(function(){
+    var calc = function(){
+        var docElement = document.documentElement;
+        var clientWidthValue = docElement.clientWidth > 750 ? 750 : docElement.clientWidth;
+        docElement.style.fontSize = 100*(clientWidthValue/750) + 'px';
+    }
+    calc();
+    window.addEventListener('resize', calc);
+})();
+</script>
+</html>
