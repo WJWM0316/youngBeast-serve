@@ -81,8 +81,8 @@ const middle = async (req, res, next) => {
 		encoding: 'base64',
 		fullPage: true
 	});
-	// await page.close();
-	// await browser.disconnect()
+	await page.close();
+	await browser.disconnect()
 	// res.render('index', {
 	//     title:'study book',
 	//     jpeg:`data:image/png;base64,${results}` ,
