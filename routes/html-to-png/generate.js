@@ -25,8 +25,9 @@ router.post('/youngBeast_act', (req, res, next) => {
 		uploadDir: './public/images/cropper'
 	});
 	form.parse(req, async function (err, fields, files) {
-		console.log(fields, files, ' fields2')
-		if (err) {} else {
+		if (err) {
+			res.send('参数错误， ' + err)
+		} else {
 			req.query = {
 				type: 'youngBeast_act',
 				img: files.img[0].path,
