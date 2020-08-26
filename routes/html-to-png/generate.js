@@ -10,27 +10,24 @@ var fs = require('fs');
 const config = require('../../config/global.js')
 var multiparty = require("multiparty");
 const BaseURL = config.nodeApi
+console.log(BaseURL, 222)
 const RenderConfing = {
 	'youngBeast_act': {
 		url: 'frontEnd/s-youngBeast-act',
 		isDevice: true
 	}
 }
-router.get('/ceshi', function (req, res, next) {
-	res.json(BaseURL)
-  next()
-})
+
 router.post('/youngBeast_act', (req, res, next) => {
-	var form = new multiparty.Form({
-		uploadDir: './public/images/cropper'
-	});
+	var form = new multiparty.Form({autoFiles: true});
 	form.parse(req, async function (err, fields, files) {
 		if (err) {
 			res.send('参数错误， ' + err)
 		} else {
-			req.query = {
+			
+			let data = {
 				type: 'youngBeast_act',
-				img: files.img[0].path,
+				img: fields.img[0],
 				name: fields.name[0],
 				introduce: fields.introduce[0],
 				desc1: fields.desc1[0],
@@ -38,8 +35,17 @@ router.post('/youngBeast_act', (req, res, next) => {
 				desc3: fields.desc3[0],
 				desc4: fields.desc4[0]
 			}
+			req.query = {
+				type: 'youngBeast_act'
+			}
+			router.get('/youngBeast_act_data', (req0, res0, next0) => {
+				res0.json({
+					httpStatus: 200,
+					data: data
+				})
+				next0()
+			})
 			await middle(req, res, next)
-			fs.unlinkSync(files.img[0].path)
 		}
 	});
 })
