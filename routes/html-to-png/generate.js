@@ -6,11 +6,10 @@ const {
 } = require('puppeteer-core/DeviceDescriptors');
 const request = require('request-promise-native');
 const qs = require('qs')
-var fs = require('fs');
+const fs = require('fs');
 const config = require('../../config/global.js')
-var multiparty = require("multiparty");
+const multiparty = require("multiparty");
 const BaseURL = config.nodeApi
-console.log(BaseURL, 222)
 const RenderConfing = {
 	'youngBeast_act': {
 		url: 'frontEnd/s-youngBeast-act',
@@ -24,7 +23,6 @@ router.post('/youngBeast_act', (req, res, next) => {
 		if (err) {
 			res.send('参数错误， ' + err)
 		} else {
-			
 			let data = {
 				type: 'youngBeast_act',
 				img: fields.img[0],
@@ -64,7 +62,7 @@ const middle = async (req, res, next) => {
 		})
 	}
 	let version = await request({
-		uri: process.env.NODE_ENV === 'pro' ? "http://192.168.3.151:3100/json/version" : "http://127.0.0.1:3100/json/version",
+		uri: "http://127.0.0.1:3100/json/version",
 		json: true
 	});
 	let browser = await puppeteer.connect({
