@@ -5,8 +5,8 @@ var Global = require("../config/global.js");
 let store = null,
 		params = {
 			region: 'oss-cn-shenzhen',
-			accessKeyId: 'LTAI4FoZC4y49VRud5TTB3sG',
-			accessKeySecret: 'MCPrzFfL8ByZG4vFlgdzjuu9BQdIE1',
+			accessKeyId: '',
+			accessKeySecret: '',
 			bucket: Global.bucket
 		}
 module.exports = myUpload = function ({fileName, files}) {
